@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Calculator</title>
+	<script>
+		function calculate() {
+			var num1 = parseFloat(document.getElementById("num1").value);
+			var num2 = parseFloat(document.getElementById("num2").value);
+			var operator = document.getElementById("operator").value;
+			var result;
+
+			if (operator == "+") {
+				result = num1 + num2;
+			} else if (operator == "-") {
+				result = num1 - num2;
+			} else if (operator == "*") {
+				result = num1 * num2;
+			} else if (operator == "/") {
+				result = num1 / num2;
+			}
+
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<label for="num1">Number 1:</label>
+		<input type="number" id="num1" name="num1"><br>
+
+		<label for="num2">Number 2:</label>
+		<input type="number" id="num2" name="num2"><br>
+
+		<label for="operator">Operator:</label>
+		<select id="operator" name="operator">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select><br>
+
+		<button type="button" onclick="calculate()">Calculate</button>
+	</form>
+
+	<p>Result: <span id="result"></span></p>
+</body>
+</html>
+
+For a to-do list, you can create a form where users can input tasks, and then use JavaScript to add the task to a list and display it on the page. You can also add buttons to mark tasks as done and remove them from the list. Here is an example of how you can create a basic to-do list using HTML and JavaScript:
+html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To-Do List</title>
+	<script>
+		function addTask() {
+			var task = document.getElementById("task").value;
+			var list = document.getElementById("list");
+
+			var li = document.createElement("li");
+			li.innerHTML = task;
+
+			var doneButton = document.createElement("button");
+			doneButton.innerHTML = "Done";
+			doneButton.onclick = function() {
+				li.style.textDecoration = "line-through";
+			};
+
+			var removeButton = document.createElement("button");
+			removeButton.innerHTML = "Remove";
+			removeButton.onclick = function() {
+				list.removeChild(li);
+			};
+
+			li.appendChild(doneButton);
+			li.appendChild(removeButton);
+
+			list.appendChild(li);
+
+			document.getElementById("task").value = "";
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<label for="task">Task:</label>
+		<input type="text" id="task" name="task">
+
+		<button type="button" onclick="addTask()">Add</button>
+	</form>
+
+	<ul id="list"></ul>
+</body>
+</html>
+
+Related
